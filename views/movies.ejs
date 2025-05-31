@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mangas Inventory</title>
+  </head>
+  <body>
+    <%- include("header") %>
+    <div class="body">
+      <div class="sidebar">
+        <h2>Categories</h2>
+        <a href="\new-categorie">+ add new categorie</a>
+        <ul>
+          <% categories.forEach(function(item) { %>
+          <li><%= item.name %></li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="main">
+        <div class="section-header">
+          <h3>Movies</h3>
+          <button><a href="/new-movie">Add New Movie</a></button>
+        </div>
+        <div class="categories-shown">Showing categories: Action, Romance</div>
+        <div class="movie-grid">
+          <% movies.forEach((movie) => { %>
+          <a href="/movies/<%= movie.id %>" class="movie-card-link">
+            <div class="movie-card">
+              <img
+                src="<%= movie.imageurl %>"
+                alt="<%= movie.name %>"
+                class="movie-image"
+              />
+              <div class="title"><%= movie.name %></div>
+            </div>
+          </a>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

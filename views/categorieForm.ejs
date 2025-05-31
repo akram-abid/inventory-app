@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/categorieForm.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New Category</title>
+  <link rel="stylesheet" href="/styles/add-category.css">
+</head>
+<body>
+
+  <header>
+    <h3>Dashboard</h3>
+  </header>
+
+  <main class="main">
+    <div class="section-header">
+      <h3>Add New Category</h3>
+      <button type="submit" form="category-form">Save</button>
+    </div>
+
+    <form id="category-form" class="category-form" method="POST" action="/new-categorie">
+      <div class="form-group">
+        <label for="name">Category Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+    </form>
+  </main>
+
+</body>
+</html>

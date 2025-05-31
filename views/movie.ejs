@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><%= movie.name %> - Movie Details</title>
+  <link rel="stylesheet" href="/movie.css">
+</head>
+<body>
+
+  <header>
+    <h1>Movie Details</h1>
+  </header>
+
+  <main>
+    <div class="section-header">
+      <h2><%= movie.name %></h2>
+      <a href="/movies/<%= movie.id %>/edit">
+        <button>Edit</button>
+      </a>
+    </div>
+
+    <div class="item-container">
+      <div class="item-image">
+        <img src="<%= movie.imageurl %>" alt="<%= movie.name %>">
+      </div>
+
+      <p class="description"><%= description %></p> 
+
+      <div class="item-info">
+        <p class="category">Category: <span><%= category.name %></span></p>
+        <p class="description"><%= movie.describtion %></p>
+
+        <div class="meta">
+          <p>Release Date: <%= new Date(movie.release_date).toLocaleDateString() %></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
