@@ -79,7 +79,7 @@ VALUES
 
   console.log("Creating tables and seeding data...");
   const client = new Client({
-    connectionString: process.env.DATABASE_URL + "?sslmode=require",
+    connectionString: "postgresql://akr4m:shoyo@localhost:5432/inventory_app",
   });
   
   try {
