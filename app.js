@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.use("/", moviesRoute);
 app.use("/directors", directorsRoute);
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5432
 app.listen(port, () => {
     console.log("at least i am listening at 3000");
 });
