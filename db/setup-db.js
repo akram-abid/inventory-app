@@ -3,7 +3,7 @@ const { Client } = require("pg");
 
 async function createDatabase() {
   const client = new Client({
-    connectionString: process.env.DATABASE_URL + "?sslmode=require"
+    connectionString: process.env.DATABASE_URL + "?sslmode=require",
   });
   
   try {
@@ -11,15 +11,15 @@ async function createDatabase() {
     
     // Check if database exists
     const result = await client.query(
-      "SELECT 1 FROM pg_database WHERE datname = $1", [process.env.DB_NAME || 'inventory_app']
+      "SELECT 1 FROM pg_database WHERE datname = 'inventory_app'"
     );
     
     if (result.rows.length === 0) {
       console.log("Creating database inventory_app...");
-      await client.query(`CREATE DATABASE ${process.env.DB_NAME || 'inventory_app'}`);
+      await client.query("CREATE DATABASE inventory_app");
       console.log("Database created successfully");
     } else {
-      console.log(`Database inventory_app already exists`);
+      console.log("Database inventory_app already exists");
     }
     
     await client.end();
@@ -30,7 +30,7 @@ async function createDatabase() {
   }
 }
 
-// Fixed seeding function - now uses environment variable
+// Your existing seeding function
 async function seedDatabase() {
   const SQL = `
 -- Create categories table
@@ -78,10 +78,8 @@ VALUES
 `;
 
   console.log("Creating tables and seeding data...");
-  
-  // FIXED: Now uses environment variable instead of hardcoded localhost
   const client = new Client({
-    connectionString: process.env.DATABASE_URL + "?sslmode=require"
+    connectionString: "postgresql://akr4m:shoyo@localhost:5432/inventory_app",
   });
   
   try {
@@ -108,3 +106,4 @@ async function main() {
 }
 
 main();
+
