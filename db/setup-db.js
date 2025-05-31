@@ -3,7 +3,7 @@ const { Client } = require("pg");
 
 async function createDatabase() {
   const client = new Client({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL + "?sslmode=require"
   });
   
   try {
