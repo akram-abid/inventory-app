@@ -3,7 +3,7 @@ const { Client } = require("pg");
 
 async function createDatabase() {
   const client = new Client({
-    connectionString: "postgresql://akr4m:shoyo@localhost:5432/postgres", // Connect to default postgres DB
+    connectionString: process.env.DATABASE_URL,
   });
   
   try {
